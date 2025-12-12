@@ -321,33 +321,28 @@ namespace VendingMachine
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.None,
                 ReadOnly = true,
-                Text =
-@"M = (Q, Σ, δ, q0, Λ, G)
+                Text = @"
 
-This is a finite-state Moore machine representing the vending machine, including product availability and restock.
+This is a finite-state Moore machine representing the vending machine, including product availability and restock.”
 
-States (Q)
+M = (Q, Σ, δ, q0, Λ, G)
+
 Q = {Idle, Selected, PaymentReceived, Dispensing}
-
-Input symbols (Σ)
 Σ = {Select, InsertMoney, Dispense, Complete, Restock}
-
-Initial state (q0)
 q0 = Idle
-
-Outputs (Λ)
 Λ = {Ready, ItemSelected, PaymentAccepted, DispensingItem, SoldOut}
 
-Output function (G)
-G(Idle) = Ready or SoldOut (depending on product availability)
-G(Selected) = ItemSelected or SoldOut
+Output function G (depends only on state and stock availability):
+G(Idle) = Ready, or SoldOut if all products are unavailable
+G(Selected) = ItemSelected
 G(PaymentReceived) = PaymentAccepted
 G(Dispensing) = DispensingItem
 
-Transition function (δ)
+Transition function δ:
 
 Current State   | Input         | Next State
-Idle            | Select        | Selected (or Idle if sold out)
+-------------------------------------------------
+Idle            | Select        | Selected (if product available) / Idle (if sold out)
 Selected        | InsertMoney   | PaymentReceived
 PaymentReceived | Dispense      | Dispensing
 Dispensing      | Complete      | Idle
