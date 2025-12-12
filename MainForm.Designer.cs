@@ -1,8 +1,15 @@
-﻿namespace VendingMachine
+﻿// =============================================================================================
+// This file automatically builds the UI of the vending machine.
+// It creates panels, buttons, labels, colors, layout, and connects them to event handlers.
+// ==============================================================================================
+
+namespace VendingMachine
 {
     partial class MainForm
     {
         private System.ComponentModel.IContainer components = null;
+
+        // All UI controls 
         private Panel headerPanel;
         private Label lblTitle;
         private Panel leftPanel;
@@ -26,6 +33,7 @@
         private Panel footerPanel;
         private Label lblMembers;
 
+        // Disposes UI components
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -35,6 +43,7 @@
             base.Dispose(disposing);
         }
 
+        // Builds the entire UI layout
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
@@ -46,12 +55,12 @@
             this.MinimumSize = new Size(1200, 750);
             this.Font = new Font("Segoe UI", 9);
 
-            // Header
+            // Header panel
             headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
                 Height = 80,
-                BackColor = Color.FromArgb(44, 62, 80)
+                BackColor = Color.FromArgb(60, 65, 75),
             };
 
             lblTitle = new Label
@@ -64,17 +73,18 @@
             };
             headerPanel.Controls.Add(lblTitle);
 
-            // Footer
+            // Footer panel
             footerPanel = new Panel
             {
                 Dock = DockStyle.Bottom,
                 Height = 60,
-                BackColor = Color.FromArgb(44, 62, 80)
+                BackColor = Color.FromArgb(60, 65, 75),
             };
 
-            lblMembers = new Label
+                // Members label
+                lblMembers = new Label
             {
-                Text = "", 
+                Text = "BSCS 2B",
                 Font = new Font("Segoe UI", 10),
                 ForeColor = Color.White,
                 TextAlign = ContentAlignment.MiddleCenter,
@@ -82,7 +92,7 @@
             };
             footerPanel.Controls.Add(lblMembers);
 
-            // Content Panel
+            // Main content area
             Panel contentPanel = new Panel
             {
                 Dock = DockStyle.Fill,
@@ -90,15 +100,14 @@
                 Padding = new Padding(20)
             };
 
-            // Left Panel - Machine
+            // LEFT SIDE: Vending Machine UI
             leftPanel = new Panel
             {
                 Width = 380,
                 BackColor = Color.White,
                 Dock = DockStyle.Left,
-                Padding = new Padding(0, 60, 0, 0) 
+                Padding = new Padding(0, 70, 0, 0)
             };
-
 
             machinePanel = new Panel
             {
@@ -109,7 +118,7 @@
 
             lblMachineTitle = new Label
             {
-                Text = "VENDING MACHINE",
+                Text = "DRINKS && SNACKS",
                 Location = new Point(10, 10),
                 Size = new Size(340, 30),
                 Font = new Font("Segoe UI", 14, FontStyle.Bold),
@@ -135,12 +144,12 @@
             };
             displayPanel.Controls.Add(lblOutput);
 
-            // Buttons and Labels
+            // Product buttons and labels
             btnChips = new Button
             {
                 Location = new Point(30, 160),
                 Size = new Size(300, 80),
-                Text = "🥔 CHIPS",
+                Text = "🍪 CHIPS",
                 Font = new Font("Segoe UI", 16, FontStyle.Bold),
                 BackColor = Color.FromArgb(52, 152, 219),
                 ForeColor = Color.White,
@@ -156,8 +165,7 @@
                 Location = new Point(30, 245),
                 Size = new Size(150, 25),
                 Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                ForeColor = Color.White,
-                TextAlign = ContentAlignment.MiddleLeft
+                ForeColor = Color.White
             };
 
             lblChipsStock = new Label
@@ -166,8 +174,7 @@
                 Location = new Point(180, 245),
                 Size = new Size(150, 25),
                 Font = new Font("Segoe UI", 11),
-                ForeColor = Color.FromArgb(149, 165, 166),
-                TextAlign = ContentAlignment.MiddleRight
+                ForeColor = Color.FromArgb(149, 165, 166)
             };
 
             btnWater = new Button
@@ -190,8 +197,7 @@
                 Location = new Point(30, 375),
                 Size = new Size(150, 25),
                 Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                ForeColor = Color.White,
-                TextAlign = ContentAlignment.MiddleLeft
+                ForeColor = Color.White
             };
 
             lblWaterStock = new Label
@@ -200,8 +206,7 @@
                 Location = new Point(180, 375),
                 Size = new Size(150, 25),
                 Font = new Font("Segoe UI", 11),
-                ForeColor = Color.FromArgb(149, 165, 166),
-                TextAlign = ContentAlignment.MiddleRight
+                ForeColor = Color.FromArgb(149, 165, 166)
             };
 
             btnRestock = new Button
@@ -229,23 +234,35 @@
             machinePanel.Controls.Add(btnRestock);
             leftPanel.Controls.Add(machinePanel);
 
-            // Right Panel
+            // Money display panel
+            Label lblMoney = new Label
+            {
+                Text = "Inserted: ₱0.00",
+                Location = new Point(30, 380), // Adjust position
+                Size = new Size(300, 30),
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                ForeColor = Color.White,
+                BackColor = Color.FromArgb(52, 152, 219),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            displayPanel.Controls.Add(lblMoney);
+
+            // RIGHT SIDE: Diagram + Formal Definition
             rightPanel = new Panel
             {
                 Dock = DockStyle.Fill,
                 BackColor = Color.Transparent,
-                Padding = new Padding(60)
+                Padding = new Padding(70)
             };
 
-            // Diagram
+            // Diagram section
             Panel diagramContainer = new Panel
             {
-                Height = 350,
+                Height = 335,
                 Dock = DockStyle.Top,
                 BackColor = Color.Transparent,
                 Padding = new Padding(0, 0, 0, 10)
             };
-
 
             lblDiagramTitle = new Label
             {
@@ -270,17 +287,16 @@
             diagramContainer.Controls.Add(lblDiagramTitle);
             diagramContainer.Controls.Add(diagramPanel);
 
-            // Definition
+            // Definition section
             Panel definitionContainer = new Panel
             {
                 Dock = DockStyle.Fill,
-                BackColor = Color.Transparent,
-                Padding = new Padding(0)
+                BackColor = Color.Transparent
             };
 
             lblDefinitionTitle = new Label
             {
-                Text = "FORMAL DEFINITION",
+                Text = "FORMAL DESCRIPTION",
                 Height = 30,
                 Dock = DockStyle.Top,
                 Font = new Font("Segoe UI", 12, FontStyle.Bold),
@@ -308,22 +324,34 @@
                 Text =
 @"M = (Q, Σ, δ, q0, Λ, G)
 
-Q = {Idle, Selected, PaymentReceived, Dispensing}   
-Σ = {Select, InsertMoney, Dispense, Complete}       
-q0 = Idle                                           
-Λ = {Ready, Selected, Payment Accepted, Dispensing, Complete} 
+This is a finite-state Moore machine representing the vending machine, including product availability and restock.
 
-δ (Transitions):
-  Idle + Select - Selected
-  Selected + InsertMoney - PaymentReceived
-  PaymentReceived + Dispense - Dispensing
-  Dispensing + Complete - Idle
+States (Q)
+Q = {Idle, Selected, PaymentReceived, Dispensing}
 
-G (Output function):
-  Idle - Ready
-  Selected - Selected
-  PaymentReceived - Payment Accepted
-  Dispensing - Dispensing",
+Input symbols (Σ)
+Σ = {Select, InsertMoney, Dispense, Complete, Restock}
+
+Initial state (q0)
+q0 = Idle
+
+Outputs (Λ)
+Λ = {Ready, ItemSelected, PaymentAccepted, DispensingItem, SoldOut}
+
+Output function (G)
+G(Idle) = Ready or SoldOut (depending on product availability)
+G(Selected) = ItemSelected or SoldOut
+G(PaymentReceived) = PaymentAccepted
+G(Dispensing) = DispensingItem
+
+Transition function (δ)
+
+Current State   | Input         | Next State
+Idle            | Select        | Selected (or Idle if sold out)
+Selected        | InsertMoney   | PaymentReceived
+PaymentReceived | Dispense      | Dispensing
+Dispensing      | Complete      | Idle
+Idle            | Restock       | Idle",
             };
 
             definitionPanel.Controls.Add(txtDefinition);
@@ -333,11 +361,11 @@ G (Output function):
             rightPanel.Controls.Add(definitionContainer);
             rightPanel.Controls.Add(diagramContainer);
 
-            // Add to content
+            // Add everything to content
             contentPanel.Controls.Add(rightPanel);
             contentPanel.Controls.Add(leftPanel);
 
-            // Add all to form
+            // Add everything to MainForm
             this.Controls.Add(headerPanel);
             this.Controls.Add(contentPanel);
             this.Controls.Add(footerPanel);
