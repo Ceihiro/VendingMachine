@@ -1,7 +1,4 @@
-﻿// =============================================================================================
-// This file automatically builds the UI of the vending machine.
-// It creates panels, buttons, labels, colors, layout, and connects them to event handlers.
-// ==============================================================================================
+﻿// UI Layout for Vending Machine
 
 namespace VendingMachine
 {
@@ -9,14 +6,23 @@ namespace VendingMachine
     {
         private System.ComponentModel.IContainer components = null;
 
-        // All UI controls 
+        // UI CONTROL DECLARATIONS
+
+        // Header/Footer
         private Panel headerPanel;
         private Label lblTitle;
+        private Panel footerPanel;
+        private Label lblMembers;
+
+        // Left Panel [Vending Machine]
         private Panel leftPanel;
         private Panel machinePanel;
         private Label lblMachineTitle;
         private Panel displayPanel;
         private Label lblOutput;
+        private Label lblMoney;
+
+        // Product Controls
         private Button btnChips;
         private Button btnWater;
         private Label lblChipsPrice;
@@ -24,16 +30,16 @@ namespace VendingMachine
         private Label lblChipsStock;
         private Label lblWaterStock;
         private Button btnRestock;
+
+        // Right Panel [Diagram & Definition]
         private Panel rightPanel;
         private Panel diagramPanel;
         private Label lblDiagramTitle;
         private Panel definitionPanel;
         private Label lblDefinitionTitle;
         private RichTextBox txtDefinition;
-        private Panel footerPanel;
-        private Label lblMembers;
 
-        // Disposes UI components
+        // DISPOSE METHOD
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -43,19 +49,21 @@ namespace VendingMachine
             base.Dispose(disposing);
         }
 
-        // Builds the entire UI layout
+        // INITIALIZE COMPONENT - MAIN UI BUILDER
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+
+            // Form properties 
             this.AutoScaleMode = AutoScaleMode.Font;
-            this.ClientSize = new Size(1200, 750);
+            this.ClientSize = new Size(1400, 900);
             this.Text = "Simple Vending Machine - Moore Machine";
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(236, 240, 241);
-            this.MinimumSize = new Size(1200, 750);
+            this.MinimumSize = new Size(1400, 900);
             this.Font = new Font("Segoe UI", 9);
 
-            // Header panel
+            // HEADER PANEL
             headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -73,16 +81,15 @@ namespace VendingMachine
             };
             headerPanel.Controls.Add(lblTitle);
 
-            // Footer panel
+            // FOOTER PANEL
             footerPanel = new Panel
             {
                 Dock = DockStyle.Bottom,
-                Height = 60,
+                Height = 50,
                 BackColor = Color.FromArgb(60, 65, 75),
             };
 
-                // Members label
-                lblMembers = new Label
+            lblMembers = new Label
             {
                 Text = "BSCS 2B",
                 Font = new Font("Segoe UI", 10),
@@ -92,7 +99,7 @@ namespace VendingMachine
             };
             footerPanel.Controls.Add(lblMembers);
 
-            // Main content area
+            // CONTENT PANEL [Container for left and right sections]
             Panel contentPanel = new Panel
             {
                 Dock = DockStyle.Fill,
@@ -100,36 +107,68 @@ namespace VendingMachine
                 Padding = new Padding(20)
             };
 
-            // LEFT SIDE: Vending Machine UI
+            // LEFT PANEL - VENDING MACHINE UI
             leftPanel = new Panel
             {
-                Width = 380,
-                BackColor = Color.White,
-                Dock = DockStyle.Left,
-                Padding = new Padding(0, 70, 0, 0)
+                Dock = DockStyle.Fill,
+                BackColor = Color.Transparent,
+                Padding = new Padding(10)
+            };
+
+            // Create a container to center the machine panel
+            Panel machineCenterContainer = new Panel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = Color.Transparent,
+                AutoScroll = true  // Enable scrolling
+            };
+
+            // Create a shadow panel
+            Panel machineBackgroundPanel = new Panel
+            {
+                Width = 570,  
+                Height = 800, 
+                BackColor = Color.FromArgb(44, 62, 80), 
+                Padding = new Padding(0)
             };
 
             machinePanel = new Panel
             {
-                Dock = DockStyle.Fill,
+                Width = 550, 
+                Height = 780, 
                 BackColor = Color.FromArgb(52, 73, 94),
-                Margin = new Padding(10)
+                Padding = new Padding(0),
+                Location = new Point(10, 10) 
             };
 
+            // Center the background panel horizontally, and position machine inside it
+            machineCenterContainer.Resize += (s, e) =>
+            {
+                machineBackgroundPanel.Left = (machineCenterContainer.Width - machineBackgroundPanel.Width) / 2;
+                machineBackgroundPanel.Top = 10; 
+            };
+
+            // Add machine panel to background panel, then background to container
+            machineBackgroundPanel.Controls.Add(machinePanel);
+
+            // Machine Title 
             lblMachineTitle = new Label
             {
-                Text = "DRINKS && SNACKS",
-                Location = new Point(10, 10),
-                Size = new Size(340, 30),
-                Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                Text = "₱5 SNACK MACHINE",
+                Location = new Point(30, 15),
+                Size = new Size(490, 40),
+                Font = new Font("Segoe UI", 16, FontStyle.Bold),
                 ForeColor = Color.White,
-                TextAlign = ContentAlignment.MiddleCenter
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.FromArgb(41, 128, 185),
+                BorderStyle = BorderStyle.FixedSingle
             };
 
+            // DISPLAY PANEL 
             displayPanel = new Panel
             {
-                Location = new Point(20, 50),
-                Size = new Size(320, 80),
+                Location = new Point(30, 230),
+                Size = new Size(490, 80),
                 BackColor = Color.FromArgb(39, 174, 96),
                 BorderStyle = BorderStyle.FixedSingle
             };
@@ -137,20 +176,36 @@ namespace VendingMachine
             lblOutput = new Label
             {
                 Text = "Ready",
-                Dock = DockStyle.Fill,
-                Font = new Font("Consolas", 14, FontStyle.Bold),
+                Location = new Point(10, 8),
+                Size = new Size(470, 40),
+                Font = new Font("Consolas", 16, FontStyle.Bold),
                 ForeColor = Color.White,
-                TextAlign = ContentAlignment.MiddleCenter
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.Transparent
             };
-            displayPanel.Controls.Add(lblOutput);
 
-            // Product buttons and labels
+            lblMoney = new Label
+            {
+                Text = "Inserted: ₱0.00",
+                Location = new Point(10, 48),
+                Size = new Size(470, 28),
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
+                ForeColor = Color.White,
+                BackColor = Color.FromArgb(46, 204, 113),
+                TextAlign = ContentAlignment.MiddleCenter,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            displayPanel.Controls.Add(lblOutput);
+            displayPanel.Controls.Add(lblMoney);
+
+            // PRODUCT SECTION - CHIPS
             btnChips = new Button
             {
-                Location = new Point(30, 160),
-                Size = new Size(300, 80),
+                Location = new Point(30, 325),
+                Size = new Size(490, 80),
                 Text = "🍪 CHIPS",
-                Font = new Font("Segoe UI", 16, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 BackColor = Color.FromArgb(52, 152, 219),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
@@ -162,27 +217,31 @@ namespace VendingMachine
             lblChipsPrice = new Label
             {
                 Text = "₱20.00",
-                Location = new Point(30, 245),
-                Size = new Size(150, 25),
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                ForeColor = Color.White
+                Location = new Point(40, 410),
+                Size = new Size(230, 28),
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                ForeColor = Color.FromArgb(241, 196, 15),
+                BackColor = Color.Transparent
             };
 
             lblChipsStock = new Label
             {
                 Text = "Stock: 5",
-                Location = new Point(180, 245),
-                Size = new Size(150, 25),
-                Font = new Font("Segoe UI", 11),
-                ForeColor = Color.FromArgb(149, 165, 166)
+                Location = new Point(280, 410),
+                Size = new Size(240, 28),
+                Font = new Font("Segoe UI", 13),
+                ForeColor = Color.FromArgb(149, 165, 166),
+                TextAlign = ContentAlignment.TopRight,
+                BackColor = Color.Transparent
             };
 
+            // PRODUCT SECTION - WATER
             btnWater = new Button
             {
-                Location = new Point(30, 290),
-                Size = new Size(300, 80),
+                Location = new Point(30, 450),
+                Size = new Size(490, 80),
                 Text = "💧 WATER",
-                Font = new Font("Segoe UI", 16, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 BackColor = Color.FromArgb(52, 152, 219),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
@@ -194,27 +253,31 @@ namespace VendingMachine
             lblWaterPrice = new Label
             {
                 Text = "₱15.00",
-                Location = new Point(30, 375),
-                Size = new Size(150, 25),
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                ForeColor = Color.White
+                Location = new Point(40, 535),
+                Size = new Size(230, 28),
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                ForeColor = Color.FromArgb(241, 196, 15),
+                BackColor = Color.Transparent
             };
 
             lblWaterStock = new Label
             {
                 Text = "Stock: 5",
-                Location = new Point(180, 375),
-                Size = new Size(150, 25),
-                Font = new Font("Segoe UI", 11),
-                ForeColor = Color.FromArgb(149, 165, 166)
+                Location = new Point(280, 535),
+                Size = new Size(240, 28),
+                Font = new Font("Segoe UI", 13),
+                ForeColor = Color.FromArgb(149, 165, 166),
+                TextAlign = ContentAlignment.TopRight,
+                BackColor = Color.Transparent
             };
 
+            // RESTOCK BUTTON 
             btnRestock = new Button
             {
-                Location = new Point(70, 440),
+                Location = new Point(165, 573),
                 Size = new Size(220, 50),
                 Text = "🔄 RESTOCK ALL",
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
                 BackColor = Color.FromArgb(241, 196, 15),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
@@ -223,6 +286,7 @@ namespace VendingMachine
             btnRestock.FlatAppearance.BorderSize = 0;
             btnRestock.Click += BtnRestock_Click;
 
+            // Add all controls to machine panel
             machinePanel.Controls.Add(lblMachineTitle);
             machinePanel.Controls.Add(displayPanel);
             machinePanel.Controls.Add(btnChips);
@@ -232,34 +296,34 @@ namespace VendingMachine
             machinePanel.Controls.Add(lblWaterPrice);
             machinePanel.Controls.Add(lblWaterStock);
             machinePanel.Controls.Add(btnRestock);
-            leftPanel.Controls.Add(machinePanel);
 
-            // Money display panel
-            Label lblMoney = new Label
-            {
-                Text = "Inserted: ₱0.00",
-                Location = new Point(30, 380), // Adjust position
-                Size = new Size(300, 30),
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                ForeColor = Color.White,
-                BackColor = Color.FromArgb(52, 152, 219),
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-            displayPanel.Controls.Add(lblMoney);
+            // Add background panel to center container, then container to left panel
+            machineCenterContainer.Controls.Add(machineBackgroundPanel);
+            leftPanel.Controls.Add(machineCenterContainer);
 
-            // RIGHT SIDE: Diagram + Formal Definition
+            // RIGHT PANEL - MOORE DIAGRAM & FORMAL DEFINITION
             rightPanel = new Panel
             {
                 Dock = DockStyle.Fill,
                 BackColor = Color.Transparent,
-                Padding = new Padding(70)
+                Padding = new Padding(10)
             };
 
-            // Diagram section
+            // TableLayoutPanel 
+            TableLayoutPanel rightLayout = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                RowCount = 2,
+                ColumnCount = 1,
+                BackColor = Color.Transparent
+            };
+            rightLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
+            rightLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
+
+            // DIAGRAM SECTION 
             Panel diagramContainer = new Panel
             {
-                Height = 335,
-                Dock = DockStyle.Top,
+                Dock = DockStyle.Fill,
                 BackColor = Color.Transparent,
                 Padding = new Padding(0, 0, 0, 10)
             };
@@ -267,9 +331,9 @@ namespace VendingMachine
             lblDiagramTitle = new Label
             {
                 Text = "MOORE MACHINE DIAGRAM",
-                Height = 30,
+                Height = 40,
                 Dock = DockStyle.Top,
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
                 ForeColor = Color.FromArgb(44, 62, 80),
                 TextAlign = ContentAlignment.MiddleCenter,
                 BackColor = Color.White,
@@ -284,22 +348,23 @@ namespace VendingMachine
             };
             diagramPanel.Paint += DiagramPanel_Paint;
 
-            diagramContainer.Controls.Add(lblDiagramTitle);
             diagramContainer.Controls.Add(diagramPanel);
+            diagramContainer.Controls.Add(lblDiagramTitle);
 
-            // Definition section
+            // DEFINITION SECTION 
             Panel definitionContainer = new Panel
             {
                 Dock = DockStyle.Fill,
-                BackColor = Color.Transparent
+                BackColor = Color.Transparent,
+                Padding = new Padding(0, 10, 0, 0)
             };
 
             lblDefinitionTitle = new Label
             {
                 Text = "FORMAL DESCRIPTION",
-                Height = 30,
+                Height = 40,
                 Dock = DockStyle.Top,
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
                 ForeColor = Color.FromArgb(44, 62, 80),
                 TextAlign = ContentAlignment.MiddleCenter,
                 BackColor = Color.White,
@@ -311,59 +376,88 @@ namespace VendingMachine
                 Dock = DockStyle.Fill,
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.FixedSingle,
-                Margin = new Padding(0, 10, 0, 0)
+                Padding = new Padding(10)
             };
 
             txtDefinition = new RichTextBox
             {
                 Dock = DockStyle.Fill,
-                Font = new Font("Consolas", 9),
+                Font = new Font("Consolas", 12),
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.None,
                 ReadOnly = true,
-                Text = @"
+                ScrollBars = RichTextBoxScrollBars.Vertical,
+                Text = 
+@"This is a finite-state Moore machine representing the vending machine, 
+including product availability, restock, and cancellation functionality.
 
-This is a finite-state Moore machine representing the vending machine, including product availability and restock.”
-
-M = (Q, Σ, δ, q0, Λ, G)
+Moore machine is defined as M = (Q, q0, Σ, O, δ, λ) where:
 
 Q = {Idle, Selected, PaymentReceived, Dispensing}
-Σ = {Select, InsertMoney, Dispense, Complete, Restock}
+    State set: A finite set of states the machine can be in
+
 q0 = Idle
-Λ = {Ready, ItemSelected, PaymentAccepted, DispensingItem, SoldOut}
+     Initial state: The state the machine starts in
 
-Output function G (depends only on state and stock availability):
-G(Idle) = Ready, or SoldOut if all products are unavailable
-G(Selected) = ItemSelected
-G(PaymentReceived) = PaymentAccepted
-G(Dispensing) = DispensingItem
+Σ = {Select, InsertCoin, Dispense, Complete, Restock, Cancel}
+    Input alphabet: The set of possible inputs to the machine
 
-Transition function δ:
+O = {Ready, ItemSelected, PaymentAccepted, DispensingItem}
+    Output alphabet: The set of possible outputs
 
-Current State   | Input         | Next State
--------------------------------------------------
-Idle            | Select        | Selected (if product available) / Idle (if sold out)
-Selected        | InsertMoney   | PaymentReceived
-PaymentReceived | Dispense      | Dispensing
-Dispensing      | Complete      | Idle
-Idle            | Restock       | Idle",
+δ: Q × Σ → Q
+   Transition function: Describes state transitions based on current state and input
+   
+   Current State      | Input       | Next State
+   ─────────────────────────────────────────────────
+   Idle               | Select      | Selected
+   Idle               | Restock     | Idle
+   Selected           | InsertCoin  | PaymentReceived
+   Selected           | Cancel      | Idle
+   PaymentReceived    | Dispense    | Dispensing
+   PaymentReceived    | Cancel      | Idle
+   Dispensing         | Complete    | Idle
+
+λ: Q → O
+   Output function: Produces output based solely on current state (Moore property)
+   
+    State              | Output
+   ───────────────────────────────────
+   Idle               | Ready
+   Selected           | ItemSelected
+   PaymentReceived    | PaymentAccepted
+   Dispensing         | DispensingItem
+"
             };
 
             definitionPanel.Controls.Add(txtDefinition);
-            definitionContainer.Controls.Add(lblDefinitionTitle);
             definitionContainer.Controls.Add(definitionPanel);
+            definitionContainer.Controls.Add(lblDefinitionTitle);
 
-            rightPanel.Controls.Add(definitionContainer);
-            rightPanel.Controls.Add(diagramContainer);
+            // ASSEMBLE RIGHT PANEL
+            rightLayout.Controls.Add(diagramContainer, 0, 0);
+            rightLayout.Controls.Add(definitionContainer, 0, 1);
+            rightPanel.Controls.Add(rightLayout);
 
-            // Add everything to content
-            contentPanel.Controls.Add(rightPanel);
-            contentPanel.Controls.Add(leftPanel);
+            // ASSEMBLE MAIN FORM 
+            TableLayoutPanel mainLayout = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                RowCount = 1,
+                ColumnCount = 2,
+                BackColor = Color.Transparent
+            };
+            mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F)); 
+            mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F)); 
 
-            // Add everything to MainForm
-            this.Controls.Add(headerPanel);
+            mainLayout.Controls.Add(leftPanel, 0, 0);
+            mainLayout.Controls.Add(rightPanel, 1, 0);
+
+            contentPanel.Controls.Add(mainLayout);
+
             this.Controls.Add(contentPanel);
             this.Controls.Add(footerPanel);
+            this.Controls.Add(headerPanel);
         }
     }
 }

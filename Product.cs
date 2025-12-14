@@ -1,25 +1,33 @@
-﻿// ==============================================================================
-// Represents a product in the vending machine (name, price, stock, and state).
-// Handles checking availability, dispensing, and restocking.
-// ==============================================================================
+﻿// Store product information (name, price, stock)
+// Track availability status
+// Handle stock reduction (dispensing)
+// Handle stock increase (restocking)
+// Automatically update state based on stock level
 
 namespace VendingMachine
 {
     public class Product
     {
-        // Product name
+        // PROPERTIES
+
+        // Product name displayed to user
         public string Name { get; set; }
 
-        // Product price
+        // Price in Philippine Pesos (₱)
         public decimal Price { get; set; }
 
-        // How many items left
+        // Current stock quantity (0 = sold out)
         public int Stock { get; set; }
 
-        // Shows "In Stock" or "Sold Out"
+        // State text: "In Stock" or "Sold Out"
         public string State { get; set; } = string.Empty;
 
-        // Creates a new product with name, price, and starting stock
+        // AVAILABILITY CHECK
+        // Returns true if product can be purchased (stock > 0)
+        public bool IsAvailable => Stock > 0;
+
+        // CONSTRUCTOR
+        // Creates a new product with specified name, price, and initial stock
         public Product(string name, decimal price, int initialStock)
         {
             Name = name;
@@ -28,10 +36,8 @@ namespace VendingMachine
             UpdateState(); 
         }
 
-        // Returns true if item is still available
-        public bool IsAvailable => Stock > 0;
-
-        // Reduces stock by 1 when dispensed
+        // DISPENSE PRODUCT
+        // Reduces stock by 1 when product is dispensed
         public void Dispense()
         {
             if (Stock > 0)
@@ -41,13 +47,15 @@ namespace VendingMachine
             }
         }
 
-        // Updates the state text based on stock
+        // UPDATE STATE TEXT
+        // Called automatically after dispensing or restocking
         public void UpdateState()
         {
             State = Stock > 0 ? "In Stock" : "Sold Out";
         }
 
-        // Adds more stock
+        // RESTOCK PRODUCT
+        // Automatically updates state after restocking
         public void Restock(int amount)
         {
             Stock += amount;
