@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 # 🏪 Simple Vending Machine - Moore Machine
 
@@ -7,7 +7,7 @@
 ![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet)
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![License](https://img.shields.io/badge/License-Educational-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
 [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Structure](#-project-structure)
 
@@ -106,6 +106,13 @@ VendingMachine/
 └── 📄 VendingMachine.csproj         # Project configuration
 ```
 
+**File Links:**
+- [`Program.cs`](Program.cs) - Application entry point
+- [`MainForm.cs`](MainForm.cs) - UI logic & event handlers
+- [`MainForm.Designer.cs`](MainForm.Designer.cs) - UI layout & controls
+- [`MooreMachine.cs`](MooreMachine.cs) - State machine implementation
+- [`Product.cs`](Product.cs) - Product model (name, price, stock)
+
 ## 🎓 Educational Value
 
 <div align="center">
@@ -128,22 +135,33 @@ VendingMachine/
 - **Real-time Visualization**: State diagram updates with current state highlighting
 - **Transaction Safety**: Handles selection changes and cancellations with auto-refund
 
+---
+
+## 🤝 Contributing
+
+This is a completed school project created for educational purposes by **Group 6 - BSCS 2B**.
+
+While the code is public for learning and reference, **this project is not actively maintained**.
+
+Feel free to fork it for your own learning!
+
+---
+
+## ⚠️ Educational Purpose
+
+This project was created for **educational purposes** as part of learning finite-state machines and Windows Forms development. While functional, it is:
+- 📚 A learning/portfolio project
+- 🎓 Not intended for commercial production use
+- 🔧 Demonstrates computer science concepts (Moore machines, state patterns)
+- 💡 Open for learning, experimentation, and improvement
+
+**Feel free to use this as a learning resource, contribute improvements, or adapt it for your own educational projects!**
+
+---
+
 ## 📝 License
 
-**For Educational Purposes Only**
-
-This project is provided for learning and academic purposes.
-
-**You may:**
-- ✅ Study and learn from the code
-- ✅ Use for school/university assignments (with proper citation)
-- ✅ Modify for personal learning
-- ✅ Fork and experiment with the code
-
-**You may NOT:**
-- ❌ Submit as your own work without attribution
-- ❌ Use commercially without permission
-- ❌ Remove author credits
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -151,12 +169,12 @@ This project is provided for learning and academic purposes.
 
 <div align="center">
 
-**© 2025 GROUP 6 | BSCS 2B - All Rights Reserved**
-
-<br>
+**© 2025 Group 6 | BSCS 2B**
 
 ### 🌟 Star this repository if you found it helpful!
 
 <br>
+
+**[⬆ Back to Top](#-simple-vending-machine---moore-machine)**
 
 </div>
