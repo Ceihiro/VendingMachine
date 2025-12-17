@@ -114,8 +114,8 @@ namespace VendingMachine
             // Create container panel for product screen 
             Panel productScreenPanel = new Panel
             {
-                Location = new Point(30, 65),      
-                Size = new Size(490, 155),         
+                Location = new Point(30, 65),
+                Size = new Size(490, 155),
                 BackColor = Color.Black,
                 BorderStyle = BorderStyle.FixedSingle
             };
@@ -168,11 +168,11 @@ namespace VendingMachine
         {
             btnCancel = new Button
             {
-                Location = new Point(30, 633),     
-                Size = new Size(235, 55),         
+                Location = new Point(30, 633),
+                Size = new Size(235, 55),
                 Text = "❌ CANCEL",
                 Font = new Font("Segoe UI", 13, FontStyle.Bold),
-                BackColor = Color.FromArgb(231, 76, 60), 
+                BackColor = Color.FromArgb(231, 76, 60),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
                 Cursor = Cursors.Hand,
@@ -190,8 +190,8 @@ namespace VendingMachine
         {
             btnInsertMoney = new Button
             {
-                Location = new Point(285, 633),    
-                Size = new Size(235, 55),          
+                Location = new Point(285, 633),
+                Size = new Size(235, 55),
                 Text = "💰 Insert ₱5",
                 Font = new Font("Segoe UI", 13, FontStyle.Bold),
                 BackColor = Color.FromArgb(39, 174, 96),

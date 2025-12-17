@@ -91,7 +91,7 @@ namespace VendingMachine
 
             lblMembers = new Label
             {
-                Text = "BSCS 2B",
+                Text = "GROUP 6 | BSCS 2B",
                 Font = new Font("Segoe UI", 10),
                 ForeColor = Color.White,
                 TextAlign = ContentAlignment.MiddleCenter,
@@ -126,26 +126,26 @@ namespace VendingMachine
             // Create a shadow panel
             Panel machineBackgroundPanel = new Panel
             {
-                Width = 570,  
-                Height = 800, 
-                BackColor = Color.FromArgb(44, 62, 80), 
+                Width = 570,
+                Height = 800,
+                BackColor = Color.FromArgb(44, 62, 80),
                 Padding = new Padding(0)
             };
 
             machinePanel = new Panel
             {
-                Width = 550, 
-                Height = 780, 
+                Width = 550,
+                Height = 780,
                 BackColor = Color.FromArgb(52, 73, 94),
                 Padding = new Padding(0),
-                Location = new Point(10, 10) 
+                Location = new Point(10, 10)
             };
 
             // Center the background panel horizontally, and position machine inside it
             machineCenterContainer.Resize += (s, e) =>
             {
                 machineBackgroundPanel.Left = (machineCenterContainer.Width - machineBackgroundPanel.Width) / 2;
-                machineBackgroundPanel.Top = 10; 
+                machineBackgroundPanel.Top = 10;
             };
 
             // Add machine panel to background panel, then background to container
@@ -387,7 +387,7 @@ namespace VendingMachine
                 BorderStyle = BorderStyle.None,
                 ReadOnly = true,
                 ScrollBars = RichTextBoxScrollBars.Vertical,
-                Text = 
+                Text =
 @"This is a finite-state Moore machine representing the vending machine, 
 including product availability, restock, and cancellation functionality.
 
@@ -447,8 +447,8 @@ O = {Ready, ItemSelected, PaymentAccepted, DispensingItem}
                 ColumnCount = 2,
                 BackColor = Color.Transparent
             };
-            mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F)); 
-            mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F)); 
+            mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
 
             mainLayout.Controls.Add(leftPanel, 0, 0);
             mainLayout.Controls.Add(rightPanel, 1, 0);
