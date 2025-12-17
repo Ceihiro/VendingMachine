@@ -6,7 +6,7 @@
   <img src="assets/icons/app.jpg" width="110" alt="NventoryBud Logo">
 </p>
 
-### _Your buddy for smarter sales and inventory_
+### *Your buddy for smarter sales and inventory*
 
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
@@ -27,7 +27,6 @@ A simple yet powerful Flutter mobile app for small businesses to manage inventor
 <td width="50%">
 
 ### 🛍️ **Product Management**
-
 - Add, update, and delete products
 - Restock inventory with ease
 - Filter by categories
@@ -37,7 +36,6 @@ A simple yet powerful Flutter mobile app for small businesses to manage inventor
 <td width="50%">
 
 ### 💰 **Sales Recording**
-
 - Quick sales transactions
 - Real-time inventory updates
 - Stock validation
@@ -49,7 +47,6 @@ A simple yet powerful Flutter mobile app for small businesses to manage inventor
 <td width="50%">
 
 ### 📊 **Analytics Dashboard**
-
 - Interactive pie charts
 - Inventory & sales visualization
 - Category filtering
@@ -59,7 +56,6 @@ A simple yet powerful Flutter mobile app for small businesses to manage inventor
 <td width="50%">
 
 ### 📄 **Reports & Receipts**
-
 - Generate timestamped receipts
 - View sales history
 - Track best-selling products
@@ -71,7 +67,6 @@ A simple yet powerful Flutter mobile app for small businesses to manage inventor
 <td colspan="2">
 
 ### ℹ️ **Help Center**
-
 - In-app user guide with step-by-step instructions
 - Feature explanations for each module
 - Support contact information
@@ -86,7 +81,6 @@ A simple yet powerful Flutter mobile app for small businesses to manage inventor
 ## 🚀 Installation
 
 ### Prerequisites
-
 - [Flutter SDK](https://flutter.dev/docs/get-started/install) (3.8.0 or higher)
 - Android Studio / VS Code with Flutter extensions
 - Android/iOS device or emulator
@@ -106,7 +100,6 @@ flutter run
 ```
 
 ### Required Assets Structure
-
 ```
 assets/
 ├── NventoryBud.png              # Splash screen logo
@@ -129,18 +122,17 @@ assets/
 
 <div align="center">
 
-| Step  | Action                  | Description                                     |
-| :---: | ----------------------- | ----------------------------------------------- |
-| **1** | 🏠 **Launch App**       | Splash screen appears, then navigate to home    |
-| **2** | ➕ **Add Products**     | Go to Products → Fill form → Add to inventory   |
-| **3** | 💳 **Record Sales**     | Go to Sales → Enter product & quantity → Sold   |
-| **4** | 📊 **View Analytics**   | Check pie charts for inventory and sales trends |
-| **5** | 📄 **Generate Reports** | Create receipts and view sales history          |
+| Step | Action | Description |
+|:----:|--------|-------------|
+| **1** | 🏠 **Launch App** | Splash screen appears, then navigate to home |
+| **2** | ➕ **Add Products** | Go to Products → Fill form → Add to inventory |
+| **3** | 💳 **Record Sales** | Go to Sales → Enter product & quantity → Sold |
+| **4** | 📊 **View Analytics** | Check pie charts for inventory and sales trends |
+| **5** | 📄 **Generate Reports** | Create receipts and view sales history |
 
 </div>
 
 ### Product Management
-
 ```
 Products Page → Enter Details → Add Product
 - Existing products: Quantity accumulates
@@ -148,7 +140,6 @@ Products Page → Enter Details → Add Product
 ```
 
 ### Recording Sales
-
 ```
 Sales Page → Product Name + Quantity → Sold
 ✓ Validates stock availability
@@ -157,7 +148,6 @@ Sales Page → Product Name + Quantity → Sold
 ```
 
 ### Analytics
-
 ```
 Analytics Page:
 ├── Inventory Tab: Current stock levels (pie chart)
@@ -165,7 +155,6 @@ Analytics Page:
 ```
 
 ### Reports
-
 ```
 Reports Page:
 ├── View total sales & top items
@@ -174,7 +163,6 @@ Reports Page:
 ```
 
 ### Help Center
-
 ```
 Help Page:
 ├── Welcome guide & app overview
@@ -186,13 +174,13 @@ Help Page:
 
 ## 📦 Dependencies
 
-| Package           | Version | Purpose                    |
-| ----------------- | ------- | -------------------------- |
-| `flutter`         | SDK     | Framework                  |
-| `intl`            | ^0.17.0 | Date & currency formatting |
-| `path_provider`   | ^2.0.11 | File system access         |
-| `fl_chart`        | ^0.68.0 | Pie chart visualization    |
-| `cupertino_icons` | ^1.0.8  | iOS-style icons            |
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `flutter` | SDK | Framework |
+| `intl` | ^0.17.0 | Date & currency formatting |
+| `path_provider` | ^2.0.11 | File system access |
+| `fl_chart` | ^0.68.0 | Pie chart visualization |
+| `cupertino_icons` | ^1.0.8 | iOS-style icons |
 
 ---
 
@@ -210,7 +198,6 @@ All data is stored locally in the app's documents directory:
   ```
 
 **Features:**
-
 - ✅ Automatic save on every change
 - ✅ Persistent across app restarts
 - ✅ No internet required
@@ -234,7 +221,7 @@ lib/
 
 ## 🎨 Design
 
-- **Color Scheme**:
+- **Color Scheme**: 
   - Primary: `#007BA7` (Blue)
   - Background: `#faf3e0` (Cream)
   - Accent: Red for destructive actions
@@ -245,7 +232,7 @@ lib/
 
 ## 🤝 Contributing
 
-This is a completed school project created for educational purposes.
+This is a completed school project created for educational purposes. 
 
 While the code is public for learning and reference, **this project is not actively maintained**.
 
@@ -256,7 +243,6 @@ Feel free to fork it for your own learning!
 ## ⚠️ Educational Purpose
 
 This project was created for **educational purposes** as part of learning Flutter development. While functional, it is:
-
 - 📚 A learning/portfolio project
 - 🎓 Not intended for commercial production use
 - 🔧 May lack enterprise-level features (authentication, cloud sync, etc.)
@@ -275,7 +261,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🆘 Support
 
 For questions, bug reports, or feature requests, please open an issue on GitHub:
-
 - 🐛 [Report an Issue](https://github.com/Ceihiro/nventorybud-app/issues)
 
 ---
