@@ -155,12 +155,6 @@ This project is provided for learning and academic purposes.
 
 <br>
 
-### 👥 Authors
-
-**GROUP 6 | BSCS 2B**
-
-<br>
-
 ### 🌟 Star this repository if you found it helpful!
 
 <br>
