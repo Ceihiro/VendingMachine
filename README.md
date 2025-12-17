@@ -1,19 +1,24 @@
-﻿<div align="center">
+# 📦 NventoryBud
 
-# 🏪 Simple Vending Machine - Moore Machine
+<div align="center">
 
-### *A Windows Forms application demonstrating Moore finite-state machine*
+<p align="center">
+  <img src="assets/icons/app.jpg" width="110" alt="NventoryBud Logo">
+</p>
 
-![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet)
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![License](https://img.shields.io/badge/License-Educational-blue?style=for-the-badge)
+### _Your buddy for smarter sales and inventory_
+
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+A simple yet powerful Flutter mobile app for small businesses to manage inventory, track sales, and generate reports.
 
 [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Structure](#-project-structure)
 
----
-
 </div>
+
+---
 
 ## ✨ Features
 
@@ -21,148 +26,271 @@
 <tr>
 <td width="50%">
 
-### 🎯 Core Functionality
-- ₱5 coin-based payment system
-- Product availability tracking
-- Transaction cancellation & refunds
-- Automatic stock management
-- Product restocking
+### 🛍️ **Product Management**
+
+- Add, update, and delete products
+- Restock inventory with ease
+- Filter by categories
+- Automatic duplicate prevention
 
 </td>
 <td width="50%">
 
-### 🎨 Visual Features
-- Real-time state diagram
-- Product image display (2×5 grid)
-- Active state highlighting
-- Output tray simulation
-- Payment progress display
+### 💰 **Sales Recording**
+
+- Quick sales transactions
+- Real-time inventory updates
+- Stock validation
+- Sold-out notifications
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 📊 **Analytics Dashboard**
+
+- Interactive pie charts
+- Inventory & sales visualization
+- Category filtering
+- Revenue calculations
+
+</td>
+<td width="50%">
+
+### 📄 **Reports & Receipts**
+
+- Generate timestamped receipts
+- View sales history
+- Track best-selling products
+- Export-ready reports
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+### ℹ️ **Help Center**
+
+- In-app user guide with step-by-step instructions
+- Feature explanations for each module
+- Support contact information
+- Perfect for first-time users
 
 </td>
 </tr>
 </table>
 
-## 🛒 Products
-
-<div align="center">
-
-| Icon | Product | Price | Initial Stock |
-|:----:|:-------:|:-----:|:-------------:|
-| 🍪 | **Chips** | ₱20.00 | 5 units |
-| 💧 | **Water** | ₱15.00 | 5 units |
-
-</div>
+---
 
 ## 🚀 Installation
 
 ### Prerequisites
 
-```bash
-✓ Visual Studio 2022 or later
-✓ .NET 8.0 SDK or later
-✓ Windows 10/11
-```
+- [Flutter SDK](https://flutter.dev/docs/get-started/install) (3.8.0 or higher)
+- Android Studio / VS Code with Flutter extensions
+- Android/iOS device or emulator
 
 ### Quick Start
 
 ```bash
-1. Open Visual Studio 2022
-2. Click "Open a project or solution"
-3. Navigate to and select `VendingMachine.csproj`
-4. Press "F5" or click the "Start" button to run the application
+# 1. Clone the repository
+git clone https://github.com/Ceihiro/nventorybud-app.git
+cd nventorybud
+
+# 2. Install dependencies
+flutter pub get
+
+# 3. Run the app
+flutter run
 ```
 
-## 📖 Usage
-
-<table>
-<tr>
-<td width="5%">1️⃣</td>
-<td><b>Select Product</b><br/>Click <code>Chips</code> or <code>Water</code> button</td>
-</tr>
-<tr>
-<td>2️⃣</td>
-<td><b>Insert Money</b><br/>Click <code>Insert ₱5</code> button repeatedly until payment complete<br/><i>Chips = 4 coins, Water = 3 coins</i></td>
-</tr>
-<tr>
-<td>3️⃣</td>
-<td><b>Collect Item</b><br/>Product dispenses automatically to output tray</td>
-</tr>
-<tr>
-<td>🔄</td>
-<td><b>Optional Actions</b><br/>• Click <code>Cancel</code> to refund money<br/>• Change selection (auto-refunds previous amount)<br/>• Click <code>Restock All</code> to refill products</td>
-</tr>
-</table>
-
-## 📁 Project Structure
+### Required Assets Structure
 
 ```
-VendingMachine/
-│
-├── 📄 Program.cs                    # Application entry point
-├── 📄 MainForm.cs                   # UI logic & event handlers
-├── 📄 MainForm.Designer.cs          # UI layout & controls
-├── 📄 MooreMachine.cs               # State machine implementation
-├── 📄 Product.cs                    # Product model (name, price, stock)
-└── 📄 VendingMachine.csproj         # Project configuration
+assets/
+├── NventoryBud.png              # Splash screen logo
+├── analyticsbg.png              # Analytics background
+├── fonts/
+│   └── Forrest-Light.otf        # Custom font
+└── icons/
+    ├── app.jpg
+    ├── product.png
+    ├── sale.png
+    ├── analytic.png
+    └── report.png
 ```
 
-## 🎓 Educational Value
-
-<div align="center">
-
-| Concept | Implementation |
-|:-------:|:---------------|
-| 🔄 | **Finite-State Machines** - Moore machine with pure state-based outputs |
-| 🎯 | **Event-Driven Programming** - Windows Forms event handling |
-| 🎨 | **Graphics Programming** - Custom GDI+ state diagram rendering |
-| ⚡ | **Async Programming** - Image loading with async/await |
-| 🏗️ | **Design Patterns** - State pattern, Observer pattern, MVC separation |
-
-</div>
-
-## 🛠️ Technical Highlights
-
-- **Pure Moore Machine**: Outputs depend solely on current state
-- **Async Image Loading**: Product images loaded from URLs with 5-second timeout
-- **Fallback Placeholders**: Creates colored placeholders if internet unavailable
-- **Real-time Visualization**: State diagram updates with current state highlighting
-- **Transaction Safety**: Handles selection changes and cancellations with auto-refund
-
-## 📝 License
-
-**For Educational Purposes Only**
-
-This project is provided for learning and academic purposes.
-
-**You may:**
-- ✅ Study and learn from the code
-- ✅ Use for school/university assignments (with proper citation)
-- ✅ Modify for personal learning
-- ✅ Fork and experiment with the code
-
-**You may NOT:**
-- ❌ Submit as your own work without attribution
-- ❌ Use commercially without permission
-- ❌ Remove author credits
+> **Note:** All assets are already configured in `pubspec.yaml`
 
 ---
 
-<br>
+## 📖 Usage
 
 <div align="center">
 
-**© 2025 GROUP 6 | BSCS 2B - All Rights Reserved**
+| Step  | Action                  | Description                                     |
+| :---: | ----------------------- | ----------------------------------------------- |
+| **1** | 🏠 **Launch App**       | Splash screen appears, then navigate to home    |
+| **2** | ➕ **Add Products**     | Go to Products → Fill form → Add to inventory   |
+| **3** | 💳 **Record Sales**     | Go to Sales → Enter product & quantity → Sold   |
+| **4** | 📊 **View Analytics**   | Check pie charts for inventory and sales trends |
+| **5** | 📄 **Generate Reports** | Create receipts and view sales history          |
 
-<br>
+</div>
 
-### 👥 Authors
+### Product Management
 
-**GROUP 6 | BSCS 2B**
+```
+Products Page → Enter Details → Add Product
+- Existing products: Quantity accumulates
+- New products: Added to inventory
+```
 
-<br>
+### Recording Sales
 
-### 🌟 Star this repository if you found it helpful!
+```
+Sales Page → Product Name + Quantity → Sold
+✓ Validates stock availability
+✓ Updates inventory automatically
+✓ Shows sold-out alerts
+```
 
-<br>
+### Analytics
+
+```
+Analytics Page:
+├── Inventory Tab: Current stock levels (pie chart)
+└── Sold Products Tab: Sales performance (sort by most/least sold)
+```
+
+### Reports
+
+```
+Reports Page:
+├── View total sales & top items
+├── Generate Receipt → Saves snapshot
+└── Reset Sold Products → Start new period
+```
+
+### Help Center
+
+```
+Help Page:
+├── Welcome guide & app overview
+├── Step-by-step feature tutorials
+└── Support contact information
+```
+
+---
+
+## 📦 Dependencies
+
+| Package           | Version | Purpose                    |
+| ----------------- | ------- | -------------------------- |
+| `flutter`         | SDK     | Framework                  |
+| `intl`            | ^0.17.0 | Date & currency formatting |
+| `path_provider`   | ^2.0.11 | File system access         |
+| `fl_chart`        | ^0.68.0 | Pie chart visualization    |
+| `cupertino_icons` | ^1.0.8  | iOS-style icons            |
+
+---
+
+## 💾 Data Storage
+
+All data is stored locally in the app's documents directory:
+
+- **`inventory.txt`**: Products (CSV format)
+  ```
+  product,price,quantity,category,sold
+  ```
+- **`receipts.txt`**: Sales receipts (JSON format)
+  ```
+  ISO8601_date|JSON_content
+  ```
+
+**Features:**
+
+- ✅ Automatic save on every change
+- ✅ Persistent across app restarts
+- ✅ No internet required
+
+---
+
+## 🏗️ Project Structure
+
+```
+lib/
+├── main.dart              # Entry point & navigation
+├── splash_screen.dart     # Initial loading screen
+├── product_page.dart      # Product CRUD operations
+├── sales_page.dart        # Sales transactions
+├── analytics_page.dart    # Data visualization
+├── report_page.dart       # Receipt generation
+└── help_page.dart         # User guide
+```
+
+---
+
+## 🎨 Design
+
+- **Color Scheme**:
+  - Primary: `#007BA7` (Blue)
+  - Background: `#faf3e0` (Cream)
+  - Accent: Red for destructive actions
+- **Typography**: Custom "MyFont" (Forrest-Light)
+- **Icons**: Material Design + custom assets
+
+---
+
+## 🤝 Contributing
+
+This is a completed school project created for educational purposes.
+
+While the code is public for learning and reference, **this project is not actively maintained**.
+
+Feel free to fork it for your own learning!
+
+---
+
+## ⚠️ Educational Purpose
+
+This project was created for **educational purposes** as part of learning Flutter development. While functional, it is:
+
+- 📚 A learning/portfolio project
+- 🎓 Not intended for commercial production use
+- 🔧 May lack enterprise-level features (authentication, cloud sync, etc.)
+- 💡 Open for learning, experimentation, and improvement
+
+**Feel free to use this as a learning resource, contribute improvements, or adapt it for your own educational projects!**
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🆘 Support
+
+For questions, bug reports, or feature requests, please open an issue on GitHub:
+
+- 🐛 [Report an Issue](https://github.com/Ceihiro/nventorybud-app/issues)
+
+---
+
+<div align="center">
+
+### Made with ❤️ using Flutter
+
+**⭐ Star this repo if you find it helpful!**
+
+[![GitHub stars](https://img.shields.io/github/stars/Ceihiro/nventorybud-app?style=social)](https://github.com/Ceihiro/nventorybud-app)
+[![GitHub forks](https://img.shields.io/github/forks/Ceihiro/nventorybud-app?style=social)](https://github.com/Ceihiro/nventorybud-app/fork)
+
+---
+
+**[⬆ Back to Top](#-nventorybud)**
 
 </div>
